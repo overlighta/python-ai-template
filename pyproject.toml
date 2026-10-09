@@ -1,0 +1,44 @@
+
+# 1. 构建系统
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+# 2. 项目基本信息
+[project]
+name = "python-ai-template"
+version = "0.1.0"
+description = "A Python and AI learning project template"
+readme = "README.md"
+requires-python = ">=3.10"
+
+# 3. 项目运行依赖
+dependencies = [
+    "requests>=2.31,<3",
+]
+
+# 4. 开发依赖
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "ruff>=0.9",
+]
+
+# 5. 指定 src 包目录
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["python_ai_template*"]
+namespaces = false
+
+# 6. pytest 配置
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+# 7. Ruff 配置
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
