@@ -42,3 +42,7 @@ target-version = "py310"
 
 [tool.ruff.lint]
 select = ["E", "F", "I"]
+
+
+[project.scripts]
+ai-template = "python_ai_template.cli:main"
